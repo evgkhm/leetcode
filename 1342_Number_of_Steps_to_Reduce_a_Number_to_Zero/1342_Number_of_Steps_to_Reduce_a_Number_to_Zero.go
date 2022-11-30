@@ -5,9 +5,9 @@ import "fmt"
 func numberOfSteps(num int) int {
 	res := 0
 	for num > 0 {
-		if num%2 == 0 {
-			num /= 2
-		} else {
+		if num&1 == 0 { //even
+			num >>= 1
+		} else { //odd
 			num -= 1
 		}
 		res++
