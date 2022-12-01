@@ -3,73 +3,49 @@ package main
 import "fmt"
 
 type ListNode struct {
-	val  int
-	next *ListNode
+	Val  int
+	Next *ListNode
 }
 
-// LinkedList Связанный список
-type LinkedList struct {
-	head *ListNode // Головной узел
-	len  int
+func (n *ListNode) Print() {
+	ptr := n
+	for ptr != nil {
+		fmt.Printf("%v\n", ptr.Val)
+		ptr = ptr.Next
+	}
 }
 
 func middleNode(head *ListNode) *ListNode {
-	length := 0
-
-	p := head.Next
-	for p != nil {
-		p = p.Next
-		length++
+	fast, slow := head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
-
-	middle := 0
-	if length&1 == 0 { //четное
-		middle = (length >> 1) + 1 //середина
-	} else { //нечетное
-		middle = length >> 1 //середина
+	return slow
+	/*res := []*ListNode{}
+	for head != nil {
+		res = append(res, head)
+		head = head.Next
 	}
-
-	res := head.Next
-	for p != nil && middle <= length {
-		res.Next = head.Next
-		middle++
-	}
-
-	return res
-}
-
-func (l *LinkedList) Insert(val int) {
-	n := ListNode{}
-	n.Val = val
-	if l.len == 0 {
-		l.head = &n
-		l.len++
-		return
-	}
-	ptr := l.head
-	for i := 0; i < l.len; i++ {
-		if ptr.next == nil {
-			ptr.next = &n
-			l.len++
-			return
-		}
-		ptr = ptr.next
-	}
-}
-
-func CreateLinkedList() *LinkedList {
-	head := new(ListNode)
-	return &LinkedList{head}
+	return res[len(res)/2]*/
 }
 
 func main() {
-	list := CreateLinkedList()
-	s := []int{1, 2, 3, 4, 5, 6, 7}
+	n1 := &ListNode{Val: 1}
+	n2 := &ListNode{Val: 2}
+	n1.Next = n2
+	n3 := &ListNode{Val: 3}
+	n2.Next = n3
+	n4 := &ListNode{Val: 4}
+	n3.Next = n4
+	n5 := &ListNode{Val: 5}
+	n4.Next = n5
+	n6 := &ListNode{Val: 6}
+	n5.Next = n6
+	n7 := &ListNode{Val: 7}
+	n6.Next = n7
 
-	for i, v := range s {
-		list.Insert(i+1, v)
-	}
-	fmt.Println(list)
-	res := middleNode(list)
-	fmt.Println(res)
+	//n1.Print()
+	n1 = middleNode(n1)
+	n1.Print()
 }
