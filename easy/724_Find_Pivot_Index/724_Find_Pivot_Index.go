@@ -3,30 +3,24 @@ package main
 import "fmt"
 
 func pivotIndex(nums []int) int {
+	sumLeft, sumRight := 0, 0
+	for _, val := range nums {
+		sumRight += val
+	}
 	res := -1
-	for pivot := 0; pivot < len(nums); pivot++ {
-		left := 0
-		right := 0
-
-		for j := 0; j < pivot; j++ {
-			left += nums[j]
+	for i := 0; i < len(nums); i++ {
+		sumLeft += nums[i]
+		if sumLeft == sumRight {
+			return i
 		}
-
-		for j := len(nums) - 1; j > pivot; j-- {
-			right += nums[j]
-		}
-
-		if left == right {
-			res = pivot
-			break
-		}
+		sumRight -= nums[i]
 	}
 	return res
 }
 
 func main() {
 	var input []int
-	input = append(input, -1, -1, 0, 1, 1, 0)
+	input = append(input, 2, 1, -1)
 	res := pivotIndex(input)
 	fmt.Println(res)
 }
