@@ -9,6 +9,7 @@ func main() {
 	fmt.Println(res)
 }
 
+// Container with most water
 func maxArea(height []int) int {
 	l, r := 0, len(height)-1
 	res := 0
