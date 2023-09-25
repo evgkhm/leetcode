@@ -42,6 +42,7 @@ func main() {
 	levelOrder(&node)
 }
 
+// Определить уровни поддеревьев
 func levelHelper(res *[][]int, root *TreeNode, level int) {
 	if root == nil {
 		return
