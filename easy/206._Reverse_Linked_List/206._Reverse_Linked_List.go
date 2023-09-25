@@ -18,6 +18,7 @@ func main() {
 	fmt.Println(res)
 }
 
+// Реверс связного списка
 func reverseList(head *ListNode) *ListNode {
 	var tempSlice []int
 	for head != nil {
