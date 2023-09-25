@@ -8,6 +8,9 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// Дан корень двоичного дерева,
+// узел X в дереве называется хорошим,
+// если на пути от корня до X нет узлов со значением, большим, чем X.
 func main() {
 	rightNode1 := &TreeNode{Val: 4, Left: nil, Right: nil}
 	leftNode1 := &TreeNode{Val: 4, Left: nil, Right: nil}
