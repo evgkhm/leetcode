@@ -5,6 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// Имеет ли цикл связный список
 func hasCycle(head *ListNode) bool {
 	slow, fast := head, head
 
