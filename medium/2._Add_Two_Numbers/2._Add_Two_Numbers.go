@@ -36,6 +36,8 @@ func main() {
 	fmt.Println(res)
 }
 
+// Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+// Output: 7 -> 0 -> 8
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	temp := dummy
