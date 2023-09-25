@@ -5,6 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// Смержить два упорядоченных связных списка
 func main() {
 	list222 := ListNode{Val: 4, Next: nil}
 	list22 := ListNode{Val: 3, Next: &list222}
