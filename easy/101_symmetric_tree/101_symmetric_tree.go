@@ -141,6 +141,7 @@ func main() {
 
 }
 
+// Определить является ли дерево симметричным
 func isSymmetricHelper(res *bool, rootLeft *TreeNode, rootRight *TreeNode) bool {
 	if rootLeft == nil && rootRight == nil {
 		return *res
