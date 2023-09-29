@@ -22,17 +22,15 @@ func isMonotonic(nums []int) bool {
 
 	for i := 1; i < len(nums); i++ {
 		if nums[i] > nums[i-1] {
-			if state == undef {
-				state = incr
-			} else if state == decr {
+			if state == decr {
 				return false
 			}
+			state = incr
 		} else if nums[i] < nums[i-1] {
-			if state == undef {
-				state = decr
-			} else if state == incr {
+			if state == incr {
 				return false
 			}
+			state = decr
 		}
 	}
 
