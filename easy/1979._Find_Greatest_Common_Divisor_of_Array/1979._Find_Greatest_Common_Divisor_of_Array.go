@@ -13,6 +13,7 @@ func findGCD(nums []int) int {
 	return nod(min, max)
 }
 
+// nod
 func nod(a int, b int) int {
 	for a != 0 && b != 0 {
 		if a > b {
